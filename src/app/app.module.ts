@@ -23,8 +23,8 @@ import { firebaseConfig } from 'src/environments/environment';
 
 
 import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
-import { SpinnerInterceptor } from './Services/Interceptors/SpinnerInterceptor';
-import { ErrorInterceptor } from './Services/Interceptors/ErrorInterceptor';
+//import { SpinnerInterceptor } from './Services/Interceptors/SpinnerInterceptor';
+//import { ErrorInterceptor } from './Services/Interceptors/ErrorInterceptor';
 
 import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,17 +66,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     NoopAnimationsModule
   ],
   providers: [
-    // HttpBase,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: SpinnerInterceptor,
-    //   multi: true
-    // },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ErrorInterceptor,
-    //   multi: true
-    // },
     NgxSpinnerService,
     AngularFireAuth,//
     AngularFirestore//

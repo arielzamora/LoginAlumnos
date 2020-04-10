@@ -1,6 +1,6 @@
 {
-  "name": "Login-Alumnos",
-  "version": "0.0.0",
+  "name": "LoginAlumnos",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -12,9 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~9.0.7",
-    "@angular/compiler-cli": "~9.0.7",
-    "typescript": "~3.7.5",
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
     "@angular/compiler": "~9.0.7",
@@ -37,7 +34,10 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@angular/cli": "~9.0.7",
+    "@angular/compiler-cli": "~9.0.7",
+    "typescript": "~3.7.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.7",
@@ -61,7 +61,7 @@
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
   },
-  "engines":{
+  "engines": {
     "node":"v12.14.1",
     "npm":"6.13.4"
   }
