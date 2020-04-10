@@ -1,5 +1,5 @@
 {
-  "name": "LoginAlumnos",
+  "name": "Login-Alumnos",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,13 +8,19 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall":"ng build --output-path angularapp --aot --prod"
+    "postinstall": "ng build --output-path angularapp --aot --prod"
   },
   "private": true,
+  "engines": {
+    "node": "v12.14.1",
+    "npm": "6.13.4"
+  },
   "dependencies": {
     "@angular/animations": "~9.0.7",
+    "@angular/cli": "~9.0.7",
     "@angular/common": "~9.0.7",
     "@angular/compiler": "~9.0.7",
+    "@angular/compiler-cli": "~9.0.7",
     "@angular/core": "~9.0.7",
     "@angular/fire": "^5.4.2",
     "@angular/forms": "~9.0.7",
@@ -26,18 +32,18 @@
     "@ng-bootstrap/ng-bootstrap": "^6.0.1",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "firebase": "^7.14.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.0",
     "ngx-captcha": "^8.0.1",
     "ngx-spinner": "^9.0.2",
+    "path": "^0.12.7",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "@angular/cli": "~9.0.7",
-    "@angular/compiler-cli": "~9.0.7",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.7",
@@ -60,9 +66,5 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
-  },
-  "engines": {
-    "node":"v12.14.1",
-    "npm":"6.13.4"
   }
 }
