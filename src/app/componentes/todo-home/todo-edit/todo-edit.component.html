@@ -1,0 +1,50 @@
+<div class="modal" [ngStyle]="{'display': showModalRegistro ? 'block' : 'none'} " >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title" id="exampleModalAlta">Actualizacion de Todo</p>
+          <button type="button" class="close" (click)="cerrar()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="form" (keyup.enter)="Submit()">
+              <div class="form-group">
+                <label for="idTodo">Id: </label>
+                <input type="text" disabled id="idTodo" formControlName="idTodo" class="form-control" placeholder="Id" [ngClass]="{ 'is-invalid': submitted && f.idTodo.errors?.required }">
+                <div *ngIf="submitted && f.idTodo.errors?.required" class="invalid-feedback"
+                  autocomplete="username">
+                  <div *ngIf="f.idTodo.errors?.required">Debe ingresar un Id.</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripcion: </label>
+                <input type="text" disabled id="descripcion" formControlName="descripcion" class="form-control" placeholder="descripcion" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors?.required }">
+                <div *ngIf="submitted && f.descripcion.errors?.required" class="invalid-feedback"
+                  autocomplete="descripcion">
+                  <div *ngIf="f.descripcion.errors?.required">Debe ingresar una descripcion.</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="estado">Estado: </label>
+                <select id="estado" formControlName="estado" class="form-control" placeholder="Estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors?.required }">
+                  <option selected value="">Seleccione</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Resuelta">Resuelta</option>
+                </select>
+                <div *ngIf="submitted && f.estado.errors?.required" class="invalid-feedback">
+                  <div *ngIf="f.estado.errors?.required">Debe ingresar un Estado.</div>
+                </div>
+            </div>             
+              <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+              <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Todo registrada
+                correctamente. </small>
+             <div class="modal-footer">
+              <button type="submit" class="btn btn-primary col-5" (click)="Submit()">Registrar</button><br>
+              <button type="submit" class="btn btn-secondary col-5" (click)="cerrar()">Cancelar</button><br>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

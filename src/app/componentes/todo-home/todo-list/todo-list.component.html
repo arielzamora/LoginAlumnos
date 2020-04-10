@@ -1,0 +1,61 @@
+
+<div class="row" >
+  <div class="col-6">
+      <div class="form-group">        
+        <select id="idTodoFiltro" class="form-control" placeholder="Id" (change)='selectedIdTodo($event.target.value)'>
+          <option value="">Seleccione Id</option>
+          <option *ngFor="let todo of dataFiltros" > {{todo.idTodo}}</option>
+        </select>
+    </div>
+  </div>
+  <div class="col-6">
+      <div class="form-group">
+        <select id="estadoFiltro"  class="form-control" placeholder="Estado" (change)='selectedEstado($event.target.value)'>
+          <option value="">Seleccione Estado</option>
+          <option> Pendiente</option>
+          <option> Eliminada</option>
+          <option> Resuelta</option>
+        </select>
+    </div>
+  </div>
+</div>
+<table class="table table-sm table-hover table-light table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center" colspan="12">
+          <div class="row">
+            <div class="form-group has-search col-6">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control col-12" [(ngModel)]="filterPost" name="filterPost" placeholder="Descripcion.">
+            </div>
+            <div class="col-6"><button class="float-right  btn btn-outline-primary" type="button" (click)="showRegistroModal()"><i class="fas fa-user-plus"></i>Nuevo</button></div>  
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Foto</th>
+        <th>Acciones</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of listaTodo | filter:filterPost">
+        <td>{{todo.idTodo}}</td>
+        <td>{{todo.descripcion}}</td>
+        <td>{{todo.estado}}</td>
+        <td><img class="img-thumbnail" width="100" [src]="domSanitizer.bypassSecurityTrustUrl('data:'+todo.tipoFoto+';base64,' + todo.foto)"
+          alt="Imagen"></td>
+        <td>
+            <a data-toggle="tooltip" title="Editar" (click)="showModifyModal(todo)">| <i class="fas fa-user-edit"></i> | </a>
+            <a data-toggle="tooltip" title="Eliminar" (click)="darDeBaja(todo)"><i class="fas fa-user-times"></i> | </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-todo-edit #modalModify [showModalRegistro]="showModal" (closeModal)="showModal = false" (modificadoCorrectamente)="cargarLista()"></app-todo-edit>
+  <app-todo-register #modalRegistro [showModalRegistro]="showModalRegistro" (closeModal)="showModalRegistro = false" (registradoCorrectamente)="cargarLista()"></app-todo-register>
+  
+  

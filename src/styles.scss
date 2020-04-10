@@ -1,0 +1,12 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "./assets/Estilos/estilos-generales.scss";
+
+HTML, body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    @include AplicarFondo(); 
+}
