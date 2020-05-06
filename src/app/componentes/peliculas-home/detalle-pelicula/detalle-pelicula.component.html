@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center"> 
+       <div class="contenedor col-12">
+            <form class="contenedor" id="form">
+                <span (click)="cerrarPeli.emit()" class="close">×</span>
+                <td><img class="img-thumbnail" width="200"  src="{{pelicula.fotoPelicula}}"></td>
+                <h3>Nombre:{{pelicula.nombre}}</h3>
+                <h3>Tipo:{{pelicula.tipo}}</h3>
+                <h3>Fecha de Estreno:{{pelicula.fechaEstreno}}</h3>
+                <h3>Cantidad de Publico:{{pelicula.cantidadPublico}}</h3>
+                <h3>Actor Principal:{{pelicula.actorPrincipal}}</h3>
+            </form>
+        </div> 
+    </div>
+  </div>

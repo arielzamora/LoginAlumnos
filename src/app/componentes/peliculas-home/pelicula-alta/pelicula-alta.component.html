@@ -1,0 +1,89 @@
+<div class="row">
+          <div class="col-6">
+            <h3>alta pelicula</h3>
+            <form [formGroup]="form" (keyup.enter)="Submit()">
+              <div class="row">
+                <div class="col-6">   
+                    <div class="form-group">
+                      <label for="idPelicula">Id Pelicula: </label>
+                      <input type="text" id="idPelicula" formControlName="idPelicula" class="form-control" placeholder="ingrese un Id" [ngClass]="{ 'is-invalid': submitted && f.idPelicula.errors?.required }">
+                      <div *ngIf="submitted && f.idPelicula.errors?.required" class="invalid-feedback"
+                        autocomplete="username">
+                        <div *ngIf="f.idPelicula.errors?.required">Debe ingresar un Id.</div>
+                      </div>
+                    </div>
+                  </div>
+                 <div class="col-6">  
+                    <div class="form-group">
+                      <label for="fechaEstreno">Fecha de Estreno: </label>
+                      <input type="text" id="fechaEstreno" formControlName="fechaEstreno" class="form-control" placeholder="dd/mm/yyyy" [ngClass]="{ 'is-invalid': submitted && f.fechaEstreno.errors?.required }">
+                      <div *ngIf="submitted && f.fechaEstreno.errors?.required" class="invalid-feedback"
+                        autocomplete="fechaEstreno">
+                        <div *ngIf="f.fechaEstreno.errors?.required">Debe fecha de estreno.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
+              <div class="form-group">
+                <label for="nombre">Nombre: </label>
+                <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="ingrese un nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors?.required }">
+                <div *ngIf="submitted && f.nombre.errors?.required" class="invalid-feedback"
+                  autocomplete="nombre">
+                  <div *ngIf="f.nombre.errors?.required">Debe ingresar un nombre.</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                      <label for="tipo">Tipo: </label>
+                      <select id="tipo" formControlName="tipo" class="form-control" placeholder="seleccione">
+                        <option selected value="">Seleccione</option>
+                        <option >terror</option>
+                        <option>comedia</option>
+                        <option >accion</option>
+                        <option>otros</option>
+                      </select>
+                      <div *ngIf="submitted && f.tipo.errors?.required" class="invalid-feedback">
+                        <div *ngIf="f.tipo.errors?.required">Debe ingresar un tipo.</div>
+                      </div>
+                  </div>
+                </div>  
+                <div class="col-6">
+                    <div class="form-group">
+                      <label for="cantidadPublico">Cantidad de publico: </label>
+                      <input type="text" id="cantidadPublico" formControlName="cantidadPublico" class="form-control" placeholder="cant publico" [ngClass]="{ 'is-invalid': submitted && f.cantidadPublico.errors?.required }">
+                      <div *ngIf="submitted && f.cantidadPublico.errors?.required" class="invalid-feedback"
+                        autocomplete="cantidadPublico">
+                        <div *ngIf="f.cantidadPublico.errors?.required">cantidad del publico.</div>
+                      </div>
+                    </div>
+                </div>   
+            </div>    
+            <div  class="form-group">
+              <label for="fotoPelicula">Foto de Pelicula: </label>
+              <input type="text" id="fotoPelicula" formControlName="fotoPelicula" class="form-control" placeholder="ingrese una url de la foto" >
+            </div>
+              <!--<div class="form-group">
+                <label for="fotoEdit">Foto </label>
+                <input type="file" id="fotoEdit" formControlName="fotoEdit" class="form-control-file" (change)="onFileChange($event)" #fileInput>
+              </div>-->
+              <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+              <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Pelicula registrada
+                correctamente. </small>
+             <div class="modal-footer">
+              <button type="submit" class="btn btn-primary col-5" (click)="Submit()">Registrar</button><br>
+              <button type="submit" class="btn btn-secondary col-5" (click)="cerrar()">Cancelar</button><br>
+              </div>
+            </form>
+
+          </div>
+            <div class="col-6">
+                <div class="row">
+                    <app-listado [title]="'Lista de Actores'"  [modoAltaEnPelicula]="true" [modoPelicula]="true" (actorCargado)="cargoActorEnPeli($event)"></app-listado>             
+                </div>
+                <div class="row">
+                    <app-peliculas-actores [title]="'Lista de Actores x Pelicula'" [listaActorxPeli]="listaActoresPeli" ></app-peliculas-actores>
+                </div> 
+            </div> 
+         </div>
+

@@ -1,0 +1,36 @@
+
+  <table class="table table-sm table-hover table-light table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Cantidad de Publico</th>
+          <th>Fecha de Estreno</th>
+          <th>Foto</th>
+          <th>Acciones</th> 
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let pelicula of listaPeliculas">
+          <td>{{pelicula.idPelicula}}</td>
+          <td>{{pelicula.nombre}}</td>
+          <td>{{pelicula.tipo}}</td>
+          <td>{{pelicula.cantidadPublico}}</td>
+          <td>{{pelicula.fechaEstreno}}</td>
+          <td><img class="img-thumbnail" width="100" src="{{pelicula.fotoPelicula}}"
+            alt="Imagen"></td>
+          <td>
+            <a data-toggle="tooltip" title="AgregarPelicula" (click)="showRegistroModal()"><i class="fas fa-user-plus"></i> | </a>
+            <app-borrar-pelicula [pelicula]="pelicula" (recargarGrilla)="cargarLista()"></app-borrar-pelicula>
+            <a data-toggle="tooltip" title="informacion" (click)="verDetalle(pelicula)"><i class="fas fa-info-circle"></i> | </a>
+            <a data-toggle="tooltip" title="AgregarActor" (click)="agregarActor(pelicula)"><i class="fas fa-user-plus"></i> | </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <app-alta-pelicula #modalRegistro [showModalRegistro]="showModalRegistro" (closeModal)="showModalRegistro = false" (registradoCorrectamente)="cargarLista()"></app-alta-pelicula>
+    <app-detalle-pelicula (cerrarPeli)="existe = false" [pelicula]="pelicula" *ngIf="existe"></app-detalle-pelicula>
+    

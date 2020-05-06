@@ -32,11 +32,24 @@ import { TodoHomeComponent } from './componentes/todo-home/todo-home.component';
 import { TodoEditComponent } from './componentes/todo-home/todo-edit/todo-edit.component';
 import { TodoListComponent } from './componentes/todo-home/todo-list/todo-list.component';
 import { TodoRegisterComponent } from './componentes/todo-home/todo-register/todo-register.component';
+
 import { LoginComponent } from './componentes/login/login.component';
 import { NavmenuComponent } from './componentes/navmenu/navmenu.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 
+import { ActorHomeComponent } from './componentes/actor-home/actor-home.component';
+import { ListadoComponent } from './componentes/actor-home/listado/listado.component';
+import { AltaActorComponent } from './componentes/actor-home/alta-actor/alta-actor.component';
+
+import { PeliculasHomeComponent } from './componentes/peliculas-home/peliculas-home.component';
+import { ListaComponent } from './componentes/peliculas-home/lista/lista.component';
+import { AltaPeliculaComponent } from './componentes/peliculas-home/alta-pelicula/alta-pelicula.component';
+import { BorrarPeliculaComponent } from './componentes/peliculas-home/borrar-pelicula/borrar-pelicula.component';
+import { DetallePeliculaComponent } from './componentes/peliculas-home/detalle-pelicula/detalle-pelicula.component';
+import { PeliculaAltaComponent } from './componentes/peliculas-home/pelicula-alta/pelicula-alta.component';
+import { PeliculasActoresComponent } from './componentes/peliculas-home/peliculas-actores/peliculas-actores.component';
 
 
 @NgModule({
@@ -49,7 +62,18 @@ import { FilterPipe } from './pipes/filter.pipe';
     LoginComponent,
     NavmenuComponent,
     HomeComponent,
-    FilterPipe
+    FilterPipe,
+    BusquedaComponent,
+    ActorHomeComponent,
+    ListadoComponent,
+    PeliculasHomeComponent,
+    ListaComponent,
+    AltaActorComponent,
+    AltaPeliculaComponent,
+    BorrarPeliculaComponent,
+    DetallePeliculaComponent,
+    PeliculaAltaComponent,
+    PeliculasActoresComponent
   ],
   imports: [
     BrowserModule,

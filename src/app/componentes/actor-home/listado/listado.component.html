@@ -1,0 +1,62 @@
+<table class="table table-sm table-hover table-light table-striped">
+  <div *ngIf="modoPelicula; else modoActor">
+    <h3>{{title}}</h3>
+            <thead class="thead-dark">
+              <tr>
+                <th *ngIf="modoAltaEnPelicula"></th>
+                <th>Actor</th> 
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Nacionalidad</th> 
+                <th>Fecha Nacimiento</th>
+                <th>Sexo</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let actor of listaActor">
+                <a *ngIf="modoAltaEnPelicula" data-toggle="tooltip" title="Agregar" (click)="agregoActorPelicula(actor)"><i class="fas fa-user-edit"></i></a>
+                <td><img class="img-thumbnail" width="50" src="{{actor.foto}}"
+                    alt="Imagen"></td>
+                <td>{{actor.nombre}}</td>
+                <td>{{actor.apellido}}</td> 
+                <th>{{actor.nacionalidad}}</th>
+                <th>{{actor.fechaNacimiento}}</th>   
+                <th>{{actor.sexo}}</th>          
+              </tr>
+            </tbody>     
+    </div>
+    <ng-template #modoActor>
+      <h3>{{title}}</h3>
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Fecha Nacimiento</th>
+          <th>Sexo</th> 
+          <th>Nacionalidad</th> 
+          <th>Foto</th> 
+          <th></th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actor of listaActor">
+          <td>{{actor.idActor}}</td>
+          <td>{{actor.nombre}}</td>
+          <td>{{actor.apellido}}</td>       
+            <td>{{actor.fechaNacimiento}}</td>       
+            <td>{{actor.sexo}}</td>
+            <td>{{actor.nacionalidad}}</td>
+            <td><img class="img-thumbnail" width="100" src="{{actor.foto}}"
+              alt="Imagen"></td>
+            <td>
+                <a data-toggle="tooltip" title="Editar" (click)="showRegistroModal()">| <i class="fas fa-user-edit"></i> | </a>
+                <a data-toggle="tooltip" title="Eliminar" (click)="darDeBaja(actor)"><i class="fas fa-user-times"></i> | </a>
+            </td>
+        </tr>
+      </tbody>
+    </ng-template>
+  </table>
+
+  <app-alta-actor #modalRegistro [showModalRegistro]="showModalRegistro" (closeModal)="showModalRegistro = false" (registradoCorrectamente)="cargarLista()"></app-alta-actor>
+  

@@ -1,0 +1,19 @@
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center"> 
+       <div class="contenedor col-8">
+        <h3>Buscador de Peliculas:</h3>
+        <div class="row col-12">
+            <div class="col-4">
+                <input type="text" class="form-control" name="peli" id="peli" [(ngModel)]="nombre">
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+            </div>
+                 
+        </div>
+            <app-detalle-pelicula (cerrarPeli)="existe = false" [pelicula]="pelicula" *ngIf="existe"></app-detalle-pelicula>
+      </div> 
+    </div>
+  </div>
