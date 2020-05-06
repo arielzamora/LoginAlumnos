@@ -1,0 +1,17 @@
+// Colores -------------
+    $color01: #283593;
+    $color02: #1A237E;
+    $color03: #C5CAE9;
+    $color04: #6C5B7B;
+    $color05: #355C7D;
+    $color06: black;
+    $color07: #013964;
+//----------------------
+ 
+$font-family: 'ZCOOL XiaoWei', serif;
+
+@mixin AplicarFondo(){     
+   // background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+   background-image: url('./assets/Imagenes/black-linen.png');
+}
+
