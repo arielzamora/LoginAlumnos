@@ -3,17 +3,40 @@
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center"> 
        <div class="contenedor col-8">
-        <h3>Buscador de Peliculas:</h3>
-        <div class="row col-12">
+        <h3>Buscador:</h3>
+        <form [formGroup]="form">   
+        <div class="row col-12">        
             <div class="col-4">
-                <input type="text" class="form-control" name="peli" id="peli" [(ngModel)]="nombre">
+                    <select id="tipo" formControlName="tipo" class="form-control">
+                      <option selected value="">Seleccione</option>
+                      <option >Actores</option>
+                      <option >Peliculas</option>
+                    </select>
+            </div>
+            <div class="col-4">
+                <input type="text" formControlName="nombre" class="form-control" name="peli" id="peli">
             </div>
             <div class="col-4">
                 <button class="btn btn-primary" (click)="buscar()">Buscar</button>
-            </div>
-                 
+            </div> 
         </div>
-            <app-detalle-pelicula (cerrarPeli)="existe = false" [pelicula]="pelicula" *ngIf="existe"></app-detalle-pelicula>
+        </form> 
+            <!--lista de peliculas--> 
+            <div *ngIf="verPeli" class="container-fluid">
+                <div class="row justify-content-center align-items-center"> 
+                   <div class="contenedor col-8">  
+                       <app-lista [title]="'Lista de Peliculas'" [enAlta]="false" [listaPeliculas]="listaPeliBusqueda"></app-lista>                    
+                    </div> 
+                </div>
+              </div>
+             <!--lista de actores--> 
+             <div *ngIf="verActo" class="container-fluid">
+                <div class="row justify-content-center align-items-center"> 
+                   <div class="contenedor col-8">
+                        <app-peliculas-actores [title]="'Lista de Actores'" [listaActorxPeli]="listaActoresBusqueda" ></app-peliculas-actores>
+                    </div> 
+                </div>
+              </div>
       </div> 
     </div>
   </div>

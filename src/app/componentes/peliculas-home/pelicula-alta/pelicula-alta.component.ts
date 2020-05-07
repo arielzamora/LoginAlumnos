@@ -56,13 +56,25 @@ ngOnInit() {
 
 cargoActorEnPeli(actor:actor)
 {
+  var esta=false;
   if(!this.listaActoresPeli)
   {
     this.listaActoresPeli= new Array<any>();
-    //recorro la lista para ver si existe 
+   
     this.listaActoresPeli.push(actor);
   }else{
-    this.listaActoresPeli.push(actor);
+     //recorro la lista para ver si existe 
+     this.listaActoresPeli.forEach(act=>
+      {
+        if(act.nombre == actor.nombre)
+        {
+          esta=true;
+        }          
+        });
+          if(!esta)
+          {
+            this.listaActoresPeli.push(actor);
+          }    
   }
   
   

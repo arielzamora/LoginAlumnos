@@ -14,6 +14,7 @@ export class ListaComponent implements OnInit {
   @ViewChild('modalRegistro',{static:false}) modalRegistro: AltaPeliculaComponent;
   @Input() listaPeliculas: pelicula[];
   @Input() title: string;
+  @Input() enAlta: boolean;
   @Output() refrescarEvent: EventEmitter<void>;
   form: FormGroup;
   error: boolean;
@@ -30,6 +31,7 @@ export class ListaComponent implements OnInit {
     this.refrescarEvent = new EventEmitter<void>();
     this.filterPost ="";
     this.cargarLista();
+    this.enAlta=true;
   }
 
   ngOnInit() {

@@ -22,10 +22,10 @@
           <td><img class="img-thumbnail" width="100" src="{{pelicula.fotoPelicula}}"
             alt="Imagen"></td>
           <td>
-            <a data-toggle="tooltip" title="AgregarPelicula" (click)="showRegistroModal()"><i class="fas fa-user-plus"></i> | </a>
-            <app-borrar-pelicula [pelicula]="pelicula" (recargarGrilla)="cargarLista()"></app-borrar-pelicula>
+            <a *ngIf="enAlta" data-toggle="tooltip" title="AgregarPelicula" (click)="showRegistroModal()"><i class="fas fa-user-plus"></i> | </a>
+            <app-borrar-pelicula *ngIf="enAlta" [pelicula]="pelicula" (recargarGrilla)="cargarLista()"></app-borrar-pelicula>
             <a data-toggle="tooltip" title="informacion" (click)="verDetalle(pelicula)"><i class="fas fa-info-circle"></i> | </a>
-            <a data-toggle="tooltip" title="AgregarActor" (click)="agregarActor(pelicula)"><i class="fas fa-user-plus"></i> | </a>
+            <a *ngIf="enAlta" data-toggle="tooltip" title="AgregarActor" (click)="agregarActor(pelicula)"><i class="fas fa-user-plus"></i> | </a>
           </td>
         </tr>
       </tbody>
