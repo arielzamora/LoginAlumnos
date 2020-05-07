@@ -9,6 +9,8 @@ import { PaisesService } from './../../services/paises.service';
 })
 export class TablaPaisesComponent implements OnInit {
 
+  pais:any={};
+  public existe: boolean;
   constructor(private paisesService: PaisesService)
   {
 
@@ -20,5 +22,12 @@ export class TablaPaisesComponent implements OnInit {
   {
     this.paisesService.BuscarTodos().subscribe(element => this.paises = element);
   }
+
+  verDetallePais(pais:any) {
+   
+    this.existe=true;
+    this.pais=pais;
+  
+    }
 
 }

@@ -52,6 +52,7 @@ import { PeliculaAltaComponent } from './componentes/peliculas-home/pelicula-alt
 import { PeliculasActoresComponent } from './componentes/peliculas-home/peliculas-actores/peliculas-actores.component';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { PaisesListadoComponent } from './componentes/paises-listado/paises-listado.component';
+import { PaisesDetalleComponent } from './componentes/paises-detalle/paises-detalle.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { PaisesListadoComponent } from './componentes/paises-listado/paises-list
     PeliculaAltaComponent,
     PeliculasActoresComponent,
     TablaPaisesComponent,
-    PaisesListadoComponent
+    PaisesListadoComponent,
+    PaisesDetalleComponent
   ],
   imports: [
     BrowserModule,

@@ -4,13 +4,18 @@
             <th>Nombre</th>
             <th>Región</th>
             <th>Bandera</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let pais of paises" >
+            <td><img src="{{pais.flag}}" alt="" style="width: 100px;"></td>
             <td>{{pais.name}}</td>
-            <td>{{pais.region}}</td>
-            <td><img src="{{pais.flag}}" alt="" style="width: 30%;"></td>
+            <td>{{pais.region}}</td>           
+            <td>
+                <a data-toggle="tooltip" title="informacion" (click)="verDetallePais(pais)"><i class="fas fa-info-circle"></i></a>
+            </td>
         </tr>
     </tbody>
 </table>
+<app-paises-detalle (cerrarPais)="existe = false" [pais]="pais" *ngIf="existe"></app-paises-detalle>
