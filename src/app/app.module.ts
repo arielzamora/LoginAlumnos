@@ -50,6 +50,8 @@ import { BorrarPeliculaComponent } from './componentes/peliculas-home/borrar-pel
 import { DetallePeliculaComponent } from './componentes/peliculas-home/detalle-pelicula/detalle-pelicula.component';
 import { PeliculaAltaComponent } from './componentes/peliculas-home/pelicula-alta/pelicula-alta.component';
 import { PeliculasActoresComponent } from './componentes/peliculas-home/peliculas-actores/peliculas-actores.component';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
+import { PaisesListadoComponent } from './componentes/paises-listado/paises-listado.component';
 
 
 @NgModule({
@@ -73,7 +75,9 @@ import { PeliculasActoresComponent } from './componentes/peliculas-home/pelicula
     BorrarPeliculaComponent,
     DetallePeliculaComponent,
     PeliculaAltaComponent,
-    PeliculasActoresComponent
+    PeliculasActoresComponent,
+    TablaPaisesComponent,
+    PaisesListadoComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,8 @@ import { PeliculasActoresComponent } from './componentes/peliculas-home/pelicula
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     NgxSpinnerService,

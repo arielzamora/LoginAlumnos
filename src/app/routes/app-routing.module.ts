@@ -10,6 +10,7 @@ import{ActorHomeComponent}from './../componentes/actor-home/actor-home.component
 import{PeliculasHomeComponent}from './../componentes/peliculas-home/peliculas-home.component';
 import{BusquedaComponent}from './../componentes/busqueda/busqueda.component';
 import{PeliculaAltaComponent}from './../componentes/peliculas-home/pelicula-alta/pelicula-alta.component';
+import{PaisesListadoComponent}from './../componentes/paises-listado/paises-listado.component';
 
 
 const routes: Routes = [
@@ -22,8 +23,8 @@ const routes: Routes = [
     data: { roles: ['Administrador']},
     children: [
       {
-        path: 'Listado',
-        component: TodoHomeComponent,
+        path: 'Paises',
+        component: PaisesListadoComponent,
         canActivate: [AuthGuard],
         data: { roles: ['Administrador'] }
       },

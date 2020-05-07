@@ -1,0 +1,16 @@
+<table class="table table-sm table-hover table-light table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Región</th>
+            <th>Bandera</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of paises" >
+            <td>{{pais.name}}</td>
+            <td>{{pais.region}}</td>
+            <td><img src="{{pais.flag}}" alt="" style="width: 30%;"></td>
+        </tr>
+    </tbody>
+</table>
