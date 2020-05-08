@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaisesListadoComponent implements OnInit {
 
+  pais:any={};
+  public existe: boolean;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public cargoPais(pais:any) {
+   
+    this.existe=true;
+    this.pais=pais;
+  
+    }
 }

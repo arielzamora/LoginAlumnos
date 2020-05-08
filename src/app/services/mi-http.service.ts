@@ -15,4 +15,9 @@ export class MiHttpService {
     return this.http.get( this.url + metodo )
       .pipe( res => res);
   }
+  public httpDelete (metodo: string): Observable<any> 
+  {
+    return this.http.get( this.url + metodo )
+      .pipe( res => res);
+  }
 }

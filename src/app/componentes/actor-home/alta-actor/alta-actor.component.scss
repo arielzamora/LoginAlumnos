@@ -43,12 +43,19 @@ hr { height:3px; border:none; color:$color02; background-color:$color02; }
     margin: 0 10px;
 }
 .modal-dialog{
-    overflow-y: initial !important
+    overflow-y: initial !important;
+   
 }
 .modal-body{
     overflow-y: auto;
+
 } 
+.modal-content{
+    width: 800px;
+    height: 500px;
+}
 
 .modal {
     background: rgba(0,0,0,0.6);
+
   }

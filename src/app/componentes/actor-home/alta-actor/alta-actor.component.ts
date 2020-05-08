@@ -93,7 +93,7 @@ Submit()
       this.actor.fechaNacimiento = this.form.get('fechaNacimiento').value;
       this.actor.sexo = this.form.get('sexo').value;
       this.actor.nacionalidad = this.form.get('nacionalidad').value;
-      this.actor.foto = this.form.get('foto').value;
+      this.actor.foto = 'https://s5.postimg.cc/537jajaxj/default.png';
 
       this.actorService.Registrar(this.actor)
         .then(

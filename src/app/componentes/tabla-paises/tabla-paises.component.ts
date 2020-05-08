@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { PaisesService } from './../../services/paises.service';
 
 
@@ -10,24 +10,40 @@ import { PaisesService } from './../../services/paises.service';
 export class TablaPaisesComponent implements OnInit {
 
   pais:any={};
-  public existe: boolean;
+  @Output() devuelvoPais: EventEmitter<any>;
   constructor(private paisesService: PaisesService)
   {
-
+    this.devuelvoPais = new EventEmitter<any>();
   }
 
-  public paises = [];
+  public paisesInicial = [];
+  public paisesFinal = [];
 
   ngOnInit() 
   {
-    this.paisesService.BuscarTodos().subscribe(element => this.paises = element);
+
+      this.paisesService.BuscarTodos().subscribe(element => this.paisesInicial = element);
+ 
   }
 
-  verDetallePais(pais:any) {
-   
-    this.existe=true;
+  verDetallePais(pais:any)
+  {
     this.pais=pais;
-  
+    this.devuelvoPais.emit(pais);
+    
+  }
+    darDeBaja(pais:any){
+      this.pais=pais;
+      this.paisesFinal=new Array<any>();
+
+      this.paisesInicial.forEach(pai=>{
+        if(pai!=pais){
+          this.paisesFinal.push(pai);
+        }
+      });
+      this.paisesInicial =this.paisesFinal;
+
     }
+
 
 }
