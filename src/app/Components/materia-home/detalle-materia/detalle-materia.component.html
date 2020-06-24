@@ -1,0 +1,30 @@
+<div class="container">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <img [src]="img" width="200" height="auto" *ngIf="img">
+                </div>
+                <div class="col-6">
+                        <h3>Materia: {{nombre}}</h3>
+                </div>
+            </div>
+            <br>
+            <table appPanel class="table table-sm table-hover table-light table-striped">
+               <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cuatrimestre</th>
+                        <th>Alumno</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center" *ngFor="let ins of inscrip">
+                    <tr>
+                        <td>{{ins.nombre}}</td>
+                        <td>{{ins.cuatrimestre}}</td>
+                        <td>{{ins.alumno}}</td>
+                    </tr>
+                </tbody>
+            </table>
+           <!-- <button (click)="cerrarListaMat.emit(false)" class="cancelbtn">Cerrar</button>-->
+        </div>
+    </div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="contenedor col-12">
+            <div class="row">
+            <button class="btn btn-secondary" (click)="selectUsuarios = true">Ver listado de usuarios</button>
+            <button (click)="borrarAl = true" class="btn btn-secondary"> Borrar Alumno</button>  
+            <button class="btn btn-secondary" (click)="borrados = true">borrados</button>
+  
+          </div>
+             <app-lista-usuarios (cerrarListaUsuario)="selectUsuarios = false"  [listaUsuarios]="listaUsuarios" *ngIf="selectUsuarios"></app-lista-usuarios>
+             <!--<app-borrar-alumno (cerrarBorrarAl)="borrarAl = false" [usuarios]="listaUsuarios" *ngIf="borrarAl"></app-borrar-alumno>
+             <app-lista-borrados (cerrarListaBorrados)="borrados = false" *ngIf="borrados"></app-lista-borrados>-->
+            </div>
+      </div>
+    </div>

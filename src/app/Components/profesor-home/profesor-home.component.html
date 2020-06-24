@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <button (click)="materiasCargo = true" class="col-6 btn btn-primary">Ver materias a cargo</button>
+        <br><br>
+        <button (click)="alumnosMateria = true" class="col-6 btn btn-secondary">Ver alumnos inscriptos en materia</button>
+        <app-profesor-materia (cerrarListaMat)="materiasCargo = false" [materias]="materias" *ngIf="materiasCargo"></app-profesor-materia>
+        <app-alumno-materia (cerrarListaAlumn)="alumnosMateria = false" [materias]="materias" [inscripciones]="inscripciones" *ngIf="alumnosMateria"></app-alumno-materia>
+    </div>
+</div>

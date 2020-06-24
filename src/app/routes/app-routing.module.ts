@@ -1,57 +1,58 @@
+import { PrincipalComponent } from './../Components/principal/principal.component';
+import { LoginComponent } from './../Components/login/login.component';
+import { RegistroComponent } from './../Components/login/registro/registro.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import{TodoHomeComponent}from './../componentes/todo-home/todo-home.component';
-import{LoginComponent}from './../componentes/login/login.component';
-import{HomeComponent}from './../componentes/home/home.component';
-import { AuthGuard } from '../common/auth.guard';
 import { CommonModule } from '@angular/common';
-
-import{ActorHomeComponent}from './../componentes/actor-home/actor-home.component';
-import{PeliculasHomeComponent}from './../componentes/peliculas-home/peliculas-home.component';
-import{BusquedaComponent}from './../componentes/busqueda/busqueda.component';
-import{PeliculaAltaComponent}from './../componentes/peliculas-home/pelicula-alta/pelicula-alta.component';
-import{PaisesListadoComponent}from './../componentes/paises-listado/paises-listado.component';
-
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../Common/auth.guard';
+import{AlumnoHomeComponent}from './../Components/alumno-home/alumno-home.component';
+import{MateriaHomeComponent}from './../Components/materia-home/materia-home.component';
+import{ProfesorHomeComponent}from './../Components/profesor-home/profesor-home.component';
+import{AdminHomeComponent}from './../Components/admin-home/admin-home.component';
+import{ExamenHomeComponent}from './../Components/examen-home/examen-home.component';
 
 const routes: Routes = [
   {
     path: 'Login', component: LoginComponent
   },
-  { path: '', redirectTo: 'Home', pathMatch: 'full' },
-  { path: 'Home', component: HomeComponent,
+  {
+    path: 'Registro', component: RegistroComponent
+  },
+  { path: '', redirectTo: 'Principal', pathMatch: 'full' },
+  { path: 'Principal', component: PrincipalComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['Administrador']},
+    data: { roles: ['Alumno', 'Profesor', 'Administrador']},
     children: [
       {
-        path: 'Paises',
-        component: PaisesListadoComponent,
+        path: 'Alumnos',
+        component: AlumnoHomeComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['Alumno', 'Profesor', 'Administrador'] }
+      },
+      {
+        path: 'Profesores',
+        component: ProfesorHomeComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['Profesor'] }
+      },
+      {
+        path: 'Examenes',
+        component: ExamenHomeComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['Profesor'] }
+      },
+      {
+        path: 'Materias',
+        component: MateriaHomeComponent,
         canActivate: [AuthGuard],
         data: { roles: ['Administrador'] }
       },
-     {
-        path: 'Peliculas',
-        component: PeliculasHomeComponent,
-        canActivate: [AuthGuard],
-        data: { roles: ['Administrador'] }
-      } ,
       {
-        path: 'Busqueda',
-        component: BusquedaComponent,
-        canActivate: [AuthGuard],
-        data: { roles: ['Administrador'] }
-      } ,
-       {
-        path: 'Actores',
-        component: ActorHomeComponent,
+        path: 'Administrador',
+        component: AdminHomeComponent,
         canActivate: [AuthGuard],
         data: { roles: ['Administrador'] }
       },
-      {
-       path: 'PelicualAlta',
-       component: PeliculaAltaComponent,
-       canActivate: [AuthGuard],
-       data: { roles: ['Administrador'] }
-     }
     ]
   },
  

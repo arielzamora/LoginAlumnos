@@ -1,0 +1,63 @@
+<div class="container h-100">
+    <div class="row">
+      <div class="col-12">
+        <h1>Registro</h1>
+        <hr class="hrt">
+      </div>
+    </div>
+    <div class="row rowLogin justify-content-center align-items-center h-75 rounded shadow">
+      <div class="col-5">
+        <div class="card" [ngClass]="{'border-danger': error}">
+          <div class="card-body">
+            <h5 class="card-title">Registro de usuarios</h5>
+            <hr>
+            <form [formGroup]="form">
+              <div class="form-row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <input type="text" id="user"  placeholder="Usuario" formControlName="user" class="form-control" [ngClass]="{ 'is-invalid': form.controls['user'].touched && form.controls['user'].invalid }">
+                    <div *ngIf="form.controls['user'].touched && form.controls['user'].invalid" class="invalid-feedback">
+                      <div *ngIf="form.controls['user'].errors.required">Debe ingresar un mail.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input type="text" id="name" placeholder="Nombre" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': form.controls['name'].touched && form.controls['name'].invalid }">
+                    <div *ngIf="form.controls['name'].touched && form.controls['name'].invalid" class="invalid-feedback">
+                      <div *ngIf="form.controls['name'].errors.required">Debe ingresar un nombre.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <input type="password" id="pass" placeholder="Password" class="form-control" formControlName="pass" [ngClass]="{ 'is-invalid': form.controls['pass'].touched && form.controls['pass'].invalid }">
+                    <div *ngIf="form.controls['pass'].touched && form.controls['pass'].invalid" class="invalid-feedback">
+                      <div *ngIf="form.controls['pass'].errors.required">Debe ingresar la contraseña.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <select id="perfil" placeholder="Perfil" formControlName="perfil" class="form-control">
+                      <option value="Alumno">Alumno</option>
+                      <option value="Profesor">Profesor</option>
+                      <option value="Administrador">Administrador</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" (click)="Registrar()">Registrar</button>
+              </div>
+            </form>   
+          </div>
+          <div *ngIf="error" class="card-footer">
+            <small class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

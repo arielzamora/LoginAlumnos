@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="rowt">
+      <table appPanel class="table table-sm table-hover table-light table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th><b>Lista de Materias</b></th>
+          </tr>
+          <tr>      
+            <th>Nombre</th>
+            <th>Cuatrimestre</th>
+            <th>Cupo</th>
+            <th>Profesor</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let materia of listaMaterias">
+          <tr (click)="mostrarDetalle(materia)">  
+                <td>{{materia.nombre}}</td>
+                <td>{{materia.cuatrimestre}}</td>
+                <td>{{materia.cupo}}</td>
+                <td>{{materia.profesor}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+          <button class="btn btn-danger cancelbtn" (click)="cerrarListaMateria.emit(false)">Cerrar</button>
+      </div>
+      <div class="col-6">
+          <app-detalle-materia [materia]="materiaSeleccionada" [usuarios]="usuarios" [inscripciones]="inscripcione" *ngIf="mostrarDetalleMateria"></app-detalle-materia>
+
+      </div>
+  </div>
+</div>
+
+<!--<app-registro-cliente #modalRegistro [showModalRegistro]="showModalRegistro" (closeModal)="showModalRegistro = false" (registradoCorrectamente)="cargarLista()"></app-registro-cliente>-->

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="contenedor col-12">
+          <div class="row">
+          <button class="btn btn-primary" (click)="registrarMateria = true">Registrar Materia</button>
+          <button class="btn btn-primary" (click)="selectMaterias = true">Ver listado de materias</button>
+          <button class="btn btn-secondary" (click)="materiasAcargo = true">materias a cargo</button>
+
+        </div>
+          <app-registro-materia (registradoCorrectamente)="cargarLista()" [listaUsuarios]="listaUsuarios" [listaMaterias]="listaMaterias" *ngIf="registrarMateria"></app-registro-materia>
+           <app-lista-materias (cerrarListaMateria)="selectMaterias = false"  [listaUsuarios]="listaUsuarios" [listaMaterias]="listaMaterias" [inscripciones]="inscripciones"  *ngIf="selectMaterias"></app-lista-materias>
+           <app-materias-acargo (cerrarListaMateria)="materiasAcargo = false" [listaMaterias]="listaMaterias" [listaUsuarios]="listaUsuarios" [inscripciones]="inscripciones" *ngIf="materiasAcargo"></app-materias-acargo>           
+          </div>
+    </div>
+  </div>
+

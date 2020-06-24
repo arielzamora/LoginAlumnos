@@ -1,0 +1,46 @@
+<div class="container">
+    <form [formGroup]="form" class="col-8">  
+        <h2>Ingrese un profesor:</h2>
+        <br>
+        <div class="form-row">
+              <div class="form-group">
+                <label for="profesor">Profesor: </label>
+                <input type="text" id="profesor" formControlName="profesor" class="form-control" [ngClass]="{ 'is-invalid': form.controls['profesor'].touched && form.controls['profesor'].invalid }">
+                <div *ngIf="form.controls['profesor'].touched && form.controls['profesor'].invalid" class="invalid-feedback">
+                  <div *ngIf="form.controls['profesor'].errors.required">Debe ingresar un profesor.</div>
+                </div>
+            </div>
+          </div>
+        <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+        <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+          correctamente. </small>
+        <hr>
+        <button class="col-5 btn btn-danger cancelbtn" (click)="verMateriasCargo()">ver materias</button>
+        <button class="col-5 btn btn-info cancelbtn" (click)="cerrarListaMateria.emit(false)">Cerrar</button>
+      </form>
+    <div *ngIf="verMaterias">
+                <table class="table table-sm table-hover table-light table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th>Nombre</th>
+                        <th>Cuatrimestre</th>
+                        <th>Cupos</th>
+                        <th>Profesor</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let materia of materiasP">
+                        <tr (click)="mostrarDetalle(materia)">  
+                                <td>{{materia.nombre}}</td>
+                                <td>{{materia.cuatrimestre}}</td>
+                                <td>{{materia.cupo}}</td>
+                                <td>{{materia.profesor}}</td>
+                          </tr>
+                    </tbody>
+          </table>
+          <div class="col-6">
+              <app-detalle-materia [materia]="materiaSeleccionada" [usuarios]="usuariosP" [inscripciones]="inscripcionP" *ngIf="mostrarDetalleMateria"></app-detalle-materia>
+    
+          </div>
+    </div>
+</div>
+

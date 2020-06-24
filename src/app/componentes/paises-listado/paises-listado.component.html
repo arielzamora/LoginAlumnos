@@ -1,8 +1,0 @@
-<div class="container-fluid">
-    <div class="row justify-content-center align-items-center"> 
-       <div class="contenedor col-8">
-                <app-tabla-paises (devuelvoPais)="cargoPais($event)"></app-tabla-paises>
-            </div> 
-        </div>
-      </div>
-<app-paises-detalle (cerrarPais)="existe = false" [pais]="pais" *ngIf="existe"></app-paises-detalle>

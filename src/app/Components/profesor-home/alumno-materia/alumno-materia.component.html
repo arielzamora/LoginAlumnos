@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <h4>alumnos inscriptos:</h4>
+        <table appPanel class="table table-sm table-hover table-light table-striped">
+            <thead class="thead-dark">
+                <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Materia</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let info of info">
+                <tr >
+                    <td>{{info.nombre}}</td>
+                    <td>{{info.tipo}}</td>
+                    <td>{{info.materia}}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <button (click)="cerrarListaAlumn.emit(false)" class="col-6 btn btn-danger cancelbtn">Cerrar</button>
+
+    </div>
+</div>

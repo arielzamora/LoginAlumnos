@@ -1,0 +1,13 @@
+<form [formGroup]="form" class="contenedor" id="form" class="col-8">
+        <h2>Borrar alumno:</h2>
+        Alumno:<br>
+            <select name="alumno" id="alumno" formControlName="alumno" class="custom-select">
+                <option value="" disabled>seleccione</option>
+                <option *ngFor="let al of alumnos"> {{al.mail}}</option>
+            </select>
+            <br>  
+            <br>
+
+        <button class="col-5 btn btn-primary" (click)="cerrarBorrarAl.emit(false)">Cerrar</button>
+        <button class="col-5 btn btn-secondary" (click)="borrar()" >Borrar</button>      
+</form>

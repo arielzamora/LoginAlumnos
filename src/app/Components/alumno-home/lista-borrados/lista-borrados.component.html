@@ -1,0 +1,19 @@
+
+        <h4>alumnos borrados</h4>
+        <table class="table table-sm table-hover table-light table-striped">
+            <thead class="thead-dark">
+                <tr>
+                <th>Email</th>
+                <th>Perfil</th>
+                <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let alumno of alumnosBorrados">
+                <tr >
+                    <td>{{alumno.email}}</td>
+                    <td>{{alumno.perfil}}</td>
+                    <td>{{alumno.fechaBorrado}}</td>
+                </tr>                
+            </tbody>
+        </table>
+        <button (click)="cerrarListaBorrados.emit(false)" class="col-6 btn btn-danger cancelbtn">Cerrar</button>

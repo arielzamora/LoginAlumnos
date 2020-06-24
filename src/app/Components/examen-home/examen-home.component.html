@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+         <button class="btn btn-primary" (click)="inscripcionExamenes = true">Cargar un examen</button>
+        </div>
+        <div class="col">
+         <button class="btn btn-secondary" (click)="verExamenes = true">Ver examamenes</button>       
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <app-lista-examen (cerrarListaExamenes)="verExamenes = false" [profesor]="profesor" [materias]="materias" [inscripciones]="inscripciones" *ngIf="verExamenes"></app-lista-examen>          
+        </div>
+        <div class="col">
+          <app-registro-examen (cerrarListaExamenes)="inscripcionExamenes = false" [profesor]="profesor" [materias]="materias" [inscripciones]="inscripciones" *ngIf="inscripcionExamenes"></app-registro-examen>         
+        </div>           
+      </div>
+</div>

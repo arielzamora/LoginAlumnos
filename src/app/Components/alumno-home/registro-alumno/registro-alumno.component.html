@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+    <form [formGroup]="form">  
+        <h2>Anotarse en una materia:</h2>
+        Materia:<br>
+        <select name="materia" id="materia" formControlName="materia" class="custom-select">
+                <option value="" disabled>seleccione</option>
+                <option *ngFor="let mat of materiasP"> {{mat.nombre}}</option>
+            </select><br>
+        Cuatrimestre:<br>
+        <select name="cuatrimestre" id="cuatrimestre" class="custom-select" formControlName="cuatrimestre">
+            <option selected value="1">Primero</option>
+            <option value="2">Segundo</option>
+        </select><br>
+        <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+        <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+          correctamente. </small>
+        <hr>
+        <button class="col-6 btn btn-danger cancelbtn" (click)="cerrar()">Cerrar</button>
+        <button class="col-6 btn btn-secondary aceptbtn" (click)="crear()" >Agregar</button>
+        
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container h-100">
+  <div class="row">
+    <div class="col-12">
+      <h1>Ariel Zamora - Segundo Parcial</h1>
+      <hr class="hrt">
+    </div>
+  </div>
+  <div class="row rowLogin justify-content-center align-items-center h-75 rounded shadow">
+    <div class="col-5">
+      <div class="card" [ngClass]="{'border-danger': error}">
+        <div class="card-body">
+          <h5 class="card-title">Ingreso</h5>
+          <hr>
+          <form [formGroup]="formG">
+            <div class="form-row">
+              <div class="col-12">
+                <div class="form-group">
+                  <input type="text" id="user"  placeholder="Usuario" formControlName="user" class="form-control" [ngClass]="{ 'is-invalid': formG.controls['user'].touched && formG.controls['user'].invalid }">
+                  <div *ngIf="formG.controls['user'].touched && formG.controls['user'].invalid" class="invalid-feedback">
+                    <div *ngIf="formG.controls['user'].errors.required">Debe ingresar un mail.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <div class="form-group">
+                  <input type="password" id="pass" placeholder="Password" class="form-control" formControlName="pass" [ngClass]="{ 'is-invalid': formG.controls['pass'].touched && formG.controls['pass'].invalid }">
+                  <div *ngIf="formG.controls['pass'].touched && formG.controls['pass'].invalid" class="invalid-feedback">
+                    <div *ngIf="formG.controls['pass'].errors.required">Debe ingresar la contraseña.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span><i class="fas fa-fast-forward"></i><b class="ar">Acceso Rápido:</b></span> <br>
+            <button type="button" class="btn btn-outline-danger btn-sm buttonDefault" data-toggle="tooltip"
+              data-placement="top" title="Administrador" (click)="CargarDefault('P')"><i class="fas fa-user-tie"></i>
+              Administrador</button>
+            <button type="button" class="btn btn-outline-primary btn-sm buttonDefault" data-toggle="tooltip"
+              data-placement="top" title="Vendedor" (click)="CargarDefault('N')"><i class="fas fa-user"></i> Profesor</button>
+            <button type="button" class="btn btn-outline-success btn-sm buttonDefault" data-toggle="tooltip"
+              data-placement="top" title="Cliente" (click)="CargarDefault('F')"><i class="fas fa-user-tag"></i> Alumno</button>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-warning" (click)="Submit()">Ingresar</button>
+              <button class="btn btn-warning" routerLink="/Registro">Registrarse</button>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="error" class="card-footer">
+          <small class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

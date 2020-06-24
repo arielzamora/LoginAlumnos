@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <h4>Alumnos:</h4>
+        <table class="table table-sm table-hover table-light table-striped">
+            <thead class="thead-dark">
+                <tr>
+                <th>Img</th>
+                <th>Alumno</th>
+                <th>Cuatrimestre</th>
+                <th>Materia</th>
+                <th>Nota</th>
+                <th>Profesor</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let examen of examenes">
+                <tr>
+                    <th> <img [src]="" width="200" height="auto"></th>
+                    <td>{{examen.alumno}}</td>
+                    <td>{{examen.cuatrimestre}}</td>
+                    <td>{{examen.materia}}</td>
+                    <td>{{examen.nota}}</td>
+                    <td>{{examen.profesor}}</td>
+                </tr> 
+            </tbody>
+        </table>
+        <button (click)="cerrarListaExamenes.emit(false)" class="col-6 btn btn-danger cancelbtn">Cerrar</button>
+    </div>
+</div>

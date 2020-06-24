@@ -1,0 +1,46 @@
+<div appPanel class="col-8">
+  <h4>Alta Materia</h4>
+  <hr>
+  <form [formGroup]="form" (keyup.enter)="Submit()">
+        <div class="form-group">
+          <label for="nombre">Nombre: </label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': form.controls['nombre'].touched && form.controls['nombre'].invalid }">
+          <div *ngIf="form.controls['nombre'].touched && form.controls['nombre'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['nombre'].errors.required">Debe ingresar un nombre.</div>
+          </div>
+        <div class="form-group">
+          <label for="local">Cuatrimestre: </label>
+          <select id="local" formControlName="cuatrimestre" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cupo">Cupo: </label>
+      <input type="text" id="cupo" formControlName="cupo" class="form-control" [ngClass]="{ 'is-invalid': form.controls['cupo'].touched && form.controls['cupo'].invalid }">
+      <div *ngIf="form.controls['cupo'].touched && form.controls['cupo'].invalid" class="invalid-feedback">
+        <div *ngIf="form.controls['cupo'].errors.required">Debe ingresar un Cupo.</div>
+      </div>
+    </div>
+        <div class="form-group">
+          <label for="profesor">Profesor </label>
+          <select id="profesor" formControlName="profesor" class="custom-select">
+            <option value="" disabled>seleccione</option>
+            <option *ngFor="let profe of listadoProfesores"> {{profe.nombre}}</option>
+          </select>
+      </div>
+    <div class="form-group">
+        Imagen:<br>
+        <input type="file" name="myFile" id="myFile" (change)="onFileChange($event)" formControlName="imagen">
+    </div>
+    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+      correctamente. </small>
+    <hr>
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary col-6" (click)="Submit()">Registrar</button><br>
+      <button class="col-6 btn btn-info cancelbtn" (click)="registradoCorrectamente.emit(false)">Cerrar</button>
+    </div>
+  </form>
+</div>

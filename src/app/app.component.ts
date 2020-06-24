@@ -7,7 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Login Alumnos';
+  title = 'PracticaSegundoParcial';
   showSpinner: boolean;
 
 

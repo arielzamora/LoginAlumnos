@@ -6,7 +6,7 @@ import { map, tap, catchError, delay } from 'rxjs/operators';
 
 @Injectable()
 export class HttpBase {
-  urlBase: String = 'https://parciales-1b95e.firebaseio.com/';
+  urlBase: String = 'https://api';
 
   constructor( public http: HttpClient ) {
    }

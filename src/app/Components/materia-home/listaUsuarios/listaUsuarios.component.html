@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+      <label><input type="radio" (change)="ngOnChange('admin')" id="r1" name="gender" value="1" required checked>Admin</label>
+      <label><input type="radio" (change)="ngOnChange('alumno')" id="r2" name="gender" value="2" >Alumno</label>
+      <label><input type="radio" (change)="ngOnChange('profesor')" id="r3" name="gender" value="3">Profesor</label>
+      <label><input type="radio" (change)="ngOnChange('todos')" id="r4" name="gender" value="toto">Todos</label>
+    
+      <table appPanel class="table table-sm table-hover table-light table-striped">
+      <thead class="thead-dark">
+        <tr>      
+          <th>Nombre</th>
+          <th>Mail</th>
+          <th>Perfil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usuariosFiltrados">     
+          <td>{{user.nombre}}</td>
+          <td>{{user.mail}}</td>
+          <td>{{user.perfil}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-12 row">
+        <button class="btn btn-info cancelbtn" (click)="cerrarListaUsuario.emit(false)">Cerrar</button>
+    </div>
+</div>
+</div>
+
+<!--<app-registro-cliente #modalRegistro [showModalRegistro]="showModalRegistro" (closeModal)="showModalRegistro = false" (registradoCorrectamente)="cargarLista()"></app-registro-cliente>-->

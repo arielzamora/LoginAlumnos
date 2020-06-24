@@ -1,0 +1,25 @@
+
+<div class="container">
+          <div class="row">
+              <div class="col">
+               <button class="btn btn-primary" (click)="inscripcionMateria = true">Inscribirse en una materia</button>
+              </div>
+              <div class="col">
+               <button class="btn btn-secondary" (click)="listaNotas = true">Ver materias cursadas</button>       
+              </div>
+              <div class="col">
+               <button class="btn btn-secondary" (click)="listaMaterias = true">Ver materias en las que está inscripto</button>       
+              </div> 
+            </div>
+            <div class="row">
+              <div class="col">
+              <app-registro-alumno (inscripcionMateria)="inscripcionMateria = false" [materias]="materias" [inscripciones]="inscripciones" *ngIf="inscripcionMateria"></app-registro-alumno>             
+              </div>
+              <div class="col">
+                  <app-materia-nota (cerrarListaMat)="listaNotas = false" [materias]="materias" [inscripciones]="inscripciones" *ngIf="listaNotas"></app-materia-nota>          
+                </div>
+              <div class="col">
+                <app-lista-alumno (cerrarListaMat)="listaMaterias = false" [materias]="materias" [inscripciones]="inscripciones" *ngIf="listaMaterias"></app-lista-alumno>         
+              </div>           
+            </div>
+</div>

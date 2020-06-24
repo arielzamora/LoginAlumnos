@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <h4>Materias cursadas:</h4>
+        <table class="table table-sm table-hover table-light table-striped">
+            <thead class="thead-dark">
+                <tr>
+                <th>Nombre</th>
+                <th>Cuatrimestre</th>
+                <th>Cupos</th>
+                <th>Profesor</th>
+                <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let materia of mats">
+                <tr [appCambioColor]="materia.cupo">
+                    <td>{{materia.nombre}}</td>
+                    <td>{{materia.cuatrimestre}}</td>
+                    <td>{{materia.cupo}}</td>
+                    <td>{{materia.profesor}}</td>
+                    <td>{{materia.nota | hayCupo}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="cerrarListaMat.emit(false)" class="col-6 btn btn-danger cancelbtn">Cerrar</button>
+    </div>
+</div>
